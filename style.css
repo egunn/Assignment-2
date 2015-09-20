@@ -1,0 +1,70 @@
+/*Set values for all tags that might be used in the website. All possible site items are set to have no padding or
+margin. This global override ensures that everything is set up right to start.*/
+html,body,h1,h2,h3,h4,p,div,a,ul,li,span{
+    margin:0;
+    padding:0;
+}
+
+/*Set the body section to take its position relative to the other items on the webpage.
+(In the hierarchy for this assignment, body is the only parent at this level - is it necessary to do this here?) */
+body{
+    position:relative;
+}
+
+
+/*Have to set the height of the boxed before they can show up!
+Set all items of class box to a minimum height of 100px. */
+.box{
+    min-height: 100px;
+}
+
+/*set properties of the box with the id "red" */
+#red{
+    /*fill color is red*/
+    background: red;
+    /*Width should be equal to the full width of the screen.*/
+    width:100%;
+    /*Do not need to set position to relative, because it should be inherited from the body settings.*/
+}
+
+/*The parent class contains the yellow, green, and blue boxes, and they will be drawn inside the frame for the parent
+class. Resizing the width of the class to 33% changes the width of the parent frame, but *not* the individual boxes
+within it. This results in a stack of three boxes that take up  a third of the width of the screen and cannot be
+forced to share a line. Changing float properties affects whether or  not the *parent* frame hides behind the red box,
+but does not allow the child boxes to sit next to one another, because they are still taking up 100% of the width of
+the container, which happens to be smaller than the width of the screen. If the parent class is defined as 33% of the
+screen width and you then set the individual box values to some percentage (33%), then you end up with three boxes that
+take up 1/9 of the screen width, because they inherit scale values from the parent class as well as their own
+individual definitions. */
+
+/*Instead of resizing the parent frame, resize the boxes that share *both* the "parent" and the "box" classes.
+This affects yellow, green, and blue boxes. (Can also be done using #boxids separated by commas*/
+.parent .box {
+    /*Use 1/3 of the width of the parent frame.*/
+    width:33.3333%;
+    /*Set the boxes to a bigger height value to match the assignment.*/
+    height:600px;
+    /*Set the float properties of each box to float left so that they will share a line.*/
+    float:left;
+}
+
+/*Set the colors for each box individually*/
+#yellow{
+    background:yellow;
+}
+
+#green{
+    background: green;
+}
+
+#blue{
+    background: blue;
+}
+
+#purple{
+    background:purple;
+    /*set the purple box back to full width.*/
+    width: 100%;
+    /*set purple box back to normal positioning (not float:left) by clearing previous settings.*/
+    clear:both;
+}
