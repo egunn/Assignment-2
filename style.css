@@ -1,21 +1,13 @@
 /*Set values for all tags that might be used in the website. All possible site items are set to have no padding or
 margin. This global override ensures that everything is set up right to start.*/
 html,body,h1,h2,h3,h4,p,div,a,ul,li,span{
-    margin:0;
-    padding:0;
+    margin:0px;
+    padding:0px;
 }
 
-/*Set the body section to take its position relative to the other items on the webpage.
-(In the hierarchy for this assignment, body is the only parent at this level - is it necessary to do this here?) */
-body{
+html,body {
+    height:100%;
     position:relative;
-}
-
-
-/*Have to set the height of the boxed before they can show up!
-Set all items of class box to a minimum height of 100px. */
-.box{
-    min-height: 100px;
 }
 
 /*set properties of the box with the id "red" */
@@ -23,6 +15,8 @@ Set all items of class box to a minimum height of 100px. */
     /*fill color is red*/
     background: red;
     /*Width should be equal to the full width of the screen.*/
+    /*set height to a fixed value to keep red and purple bars from scaling*/
+    height:100px;
     width:100%;
     /*Do not need to set position to relative, because it should be inherited from the body settings.*/
 }
@@ -43,7 +37,8 @@ This affects yellow, green, and blue boxes. (Can also be done using #boxids sepa
     /*Use 1/3 of the width of the parent frame.*/
     width:33.3333%;
     /*Set the boxes to a bigger height value to match the assignment.*/
-    height:600px;
+    /*In class: Fix to be responsive! Use screen height and percentage values*/
+    height:100%;
     /*Set the float properties of each box to float left so that they will share a line.*/
     float:left;
 }
@@ -51,20 +46,31 @@ This affects yellow, green, and blue boxes. (Can also be done using #boxids sepa
 /*Set the colors for each box individually*/
 #yellow{
     background:yellow;
+    height:100%;
 }
 
 #green{
     background: green;
+    height:100%;
 }
 
 #blue{
     background: blue;
+    height:100%;
 }
 
 #purple{
     background:purple;
     /*set the purple box back to full width.*/
     width: 100%;
-    /*set purple box back to normal positioning (not float:left) by clearing previous settings.*/
-    clear:both;
+    height:100px;
+    position:absolute;
+    bottom: 0;
+}
+
+.parent{
+    position:absolute;
+    top:100px;
+    bottom:100px;
+    width:100%;
 }
